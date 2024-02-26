@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 
 MAX_LENGTH=128
-DEVICE='cpu'
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 final_dataset = pd.read_csv('final_dataset_homer.csv')
 
