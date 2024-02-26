@@ -4,6 +4,8 @@
 https://www.kaggle.com/datasets/pierremegret/dialogue-lines-of-the-simpsons
 Он представляет собой диалоги из мультфильма Симпсоны. 
 Обработка данных выполнена в ноутбуке [HW_1_bi_encoder_homer.ipynb](https://github.com/maxbobrov85/chat_bot/blob/main/HW_1_bi_encoder_homer.ipynb). Из исходных данных были отобраны диалоги с участием Гомера и Лизы. Далее они были разбиты на вопрос/ответ с контекстом. После обработки сформирован окончательный датасет [final_dataset_homer.csv](https://github.com/maxbobrov85/chat_bot/blob/main/final_dataset_homer.csv)
+### Модель
+Модель состоит из BI (для генерации ответов) и Cross (для учета контекста) энкодеров. 
 ### BI энкодер
 В этом же ноутбуке обучили BI энкодер на основе модели 'distilbert-base-uncased'. Обучение производилось на платформе Google Colab (GPU T4). График обучения модели (training_loss) представлен на рисунке
 
