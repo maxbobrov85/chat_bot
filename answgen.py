@@ -15,9 +15,9 @@ final_dataset = pd.read_csv('final_dataset_homer.csv')
 base_answers = final_dataset['A']
 all_answers = list(set(base_answers)) # Список всех ответов из базы
 
-tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
-bert_model = AutoModel.from_pretrained("distilbert-base-uncased")
-bert_model.from_pretrained("maximvb/bi_encoder_homer")
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased",torch_dtype=torch.float16)
+bert_model = AutoModel.from_pretrained("distilbert-base-uncased",torch_dtype=torch.float16)
+bert_model.from_pretrained("maximvb/bi_encoder_homer",torch_dtype=torch.float16)
 
 class CrossEncoderBert(torch.nn.Module):
     def __init__(self, max_length: int = MAX_LENGTH):
@@ -33,7 +33,7 @@ class CrossEncoderBert(torch.nn.Module):
         return self.linear(pooled_output)
     
 model = CrossEncoderBert().to(DEVICE)
-model.bert_model.from_pretrained("maximvb/cross_encoder_homer")
+model.bert_model.from_pretrained("maximvb/cross_encoder_homer",torch_dtype=torch.float16)
 
 def get_best_rand_reply(
     tokenizer: AutoTokenizer,
