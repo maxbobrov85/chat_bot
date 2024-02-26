@@ -17,7 +17,7 @@ all_answers = list(set(base_answers)) # Список всех ответов и�
 
 tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
 bert_model = AutoModel.from_pretrained("distilbert-base-uncased")
-bert_model.from_pretrained("bi_encoder_homer")
+bert_model.from_pretrained("https://drive.google.com/drive/folders/1p7A6jtlYpeau3nnJ9JYiyMjjfplPj004?usp=sharing")
 
 class CrossEncoderBert(torch.nn.Module):
     def __init__(self, max_length: int = MAX_LENGTH):
@@ -33,7 +33,7 @@ class CrossEncoderBert(torch.nn.Module):
         return self.linear(pooled_output)
     
 model = CrossEncoderBert().to(DEVICE)
-model.bert_model.from_pretrained("cross_encoder_homer")
+model.bert_model.from_pretrained("https://drive.google.com/drive/folders/1-1f05ApQ4vGbqlVQlQA7VvJoQqcEivDO?usp=sharing")
 
 def get_best_rand_reply(
     tokenizer: AutoTokenizer,
